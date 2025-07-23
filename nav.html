@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Glass Search Bar</title>
+    
+    <!-- Bootstrap CSS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
 
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://images.unsplash.com/photo-1581349487366-65d7486f03b1?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+    }
+
+    .glass-background {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-input .input-group-text {
+      font-size: 14px;
+    }
+
+    @media (max-width: 576px) {
+      .navbar_search a {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="container mt-3" style="margin-left:20%;">
-  <div class="row g-2 align-items-center">
 
-    <div class="col-md-2 col-12">
-      <div class="input-group">
-        <button class="btn btn-outline-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Separated link</a></li>
-        </ul>
+  <div class="container my-5">
+    <div class="glass-background navbar_search">
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-6 col-md-6 col-sm-12 search-input">
+          <div class="input-group">
+            <input type="text" class="form-control border border-dark" placeholder="Search" aria-label="Search" aria-describedby="search-icon"/>
+            <span class="input-group-text bg-warning" id="search-icon">
+              <i class="bi bi-search"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-lg-end justify-content-md-end justify-content-center gap-4">
+          <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
+            <i class="bi bi-cart-fill me-1"></i> Cart
+          </a>
+          <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
+            <i class="bi bi-box-arrow-in-right me-1"></i> Login
+          </a>
+        </div>
       </div>
     </div>
-
-    <div class="col-md-5 col-12">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-icon">
-        <span class="input-group-text" id="search-icon">
-          <i class="bi bi-search"></i>
-        </span>
-      </div>
-    </div>
-
-    <div class="col-md-2 col-12 d-flex justify-content-center gap-3">
-      <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
-        <i class="bi bi-cart-fill me-1"></i> Cart
-      </a>
-      <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
-        <i class="bi bi-box-arrow-in-right me-1"></i> Login
-      </a>
-    </div>
-
   </div>
-</div>
 
-
+  <!-- Bootstrap JS -->
 </body>
 </html>

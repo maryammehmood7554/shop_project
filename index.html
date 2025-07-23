@@ -19,6 +19,7 @@
     body {
       position: relative;
       padding: 0px;
+      margin:0px;
     }
     
 .card {
@@ -61,7 +62,7 @@
   color: #ffcc00;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .card {
     flex-wrap: wrap;
     gap: 10px;
@@ -82,26 +83,35 @@
   }
 }
 
-@media (max-width: 480px) {
-  .card {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px;
-    gap: 8px;
-  }
 
-  .card a {
-    font-size: 0.9rem;
-    width: 100%;
-  }
-}
-
-.navbar_search{
+.navbar_search {
   position: fixed;
-  top: 70px;
-  left: 80px;
+  top: 40px;
+  left:50px;
+  right: 0;
+  width: 100%;
   z-index: 10;
+  padding: 0px;
 }
+
+.glass-background {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-input .input-group-text {
+      font-size: 10px;
+    }
+
+    @media (max-width: 576px) {
+      .navbar_search a {
+        font-size: 10px;
+      }
+    }
 .category {
       background-color: #F5A623;
       border: 4px double white;
@@ -134,20 +144,41 @@
       font-size: 20px;
     }
 
-    .category img {
-      border-radius: 50%;
+.category-scroll-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.category-images {
+  scroll-behavior: smooth;
+  gap: 15px;
+}
+
+.category-images img {
+  flex: 0 0 auto;
+    border-radius: 50%;
       border: 4px solid white;
       width: 100px;
       height: 100px;
       margin-left: 20px;
-    }
+}
+
+.category-images::-webkit-scrollbar {
+  height: 6px;
+}
+.category-images::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 10px;
+}
 
     .caption {
-      background-color: #12192C;
-      border: 4px double white;
-      color: white;
-      padding: 10px 0;
-      text-align: center;
+       background-color: #12192C;
+  border: 4px double white;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+
     }
 
     .caption a, .caption p {
@@ -157,12 +188,17 @@
       font-size: 16px;
     }
 
+.marquee-links a {
+  display: inline-block;
+  margin: 0 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
     @media (max-width: 576px) {
-      .category-images {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-      }
 
       .caption {
         flex-direction: column;
@@ -229,47 +265,30 @@
                 <!-- MAIN JS -->
                 <script src="assets/js/main.js"></script>
                 
-                
-                <div class="container navbar_search" style="margin-left: 12%;">
-                  <div class="row g-2 align-items-center">
 
-    <div class="col-lg-2 col-md-3 col-12 d-none d-md-block">
-      <div class="input-group">
-        <button class="btn btn-outline-dark dropdown-toggle w-70 text-light"
-        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Dropdown
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Separated link</a></li>
-      </ul>
+  <div class="container-fluid my-5 navbar_search" >
+    <div class="glass-background">
+      <div class="row g-3 align-items-center justify-content-between">
+        <div class="col-lg-6 col-md-6 col-sm-12 search-input">
+          <div class="input-group">
+            <input type="text" class="form-control border border-dark" placeholder="Search" aria-label="Search" aria-describedby="search-icon"/>
+            <span class="input-group-text bg-warning" id="search-icon">
+              <i class="bi bi-search"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-2 col-sm-12 d-flex gap-4">
+          <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
+            <i class="bi bi-cart-fill me-1"></i> Cart
+          </a>
+          <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
+            <i class="bi bi-box-arrow-in-right me-1"></i> Login
+          </a>
+        </div>
+      </div>
     </div>
   </div>
-  
-  <div class="col-lg-5 col-md-6 col-sm-4 col-12">
-    <div class="input-group">
-      <input type="text" class="form-control border border-dark" placeholder="Search" aria-label="Search" aria-describedby="search-icon">
-      <span class="input-group-text bg-warning" style="font-size:13px;" id="search-icon">
-        <i class="bi bi-search"></i>
-      </span>
-    </div>
-  </div>
-  
-  <div class="col-lg-2 col-md-3 col-lg-2 col-sm-4 col-12 d-flex justify-content-center gap-3">
-    <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
-      <i class="bi bi-cart-fill me-1"></i> Cart
-    </a>
-    <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
-      <i class="bi bi-box-arrow-in-right me-1"></i> Login
-    </a>
-  </div>
-  
-</div>
-</div>
-
 
 <div id="carouselExampleDark" class="carousel carousel-dark slide mt-0" data-bs-ride="carousel" style="margin-left:20px;">
   <div class="carousel-indicators">
@@ -313,29 +332,46 @@
   <br><br><br>
   <!-- Category  -->
 <div class="container my-4">
-    <div class="category text-center text-md-start">
-      <div class="category-title-wrapper">
-        <h1 class="category-title"><u>Category</u></h1>
-        <div class="arrow-circle">
-<i class="bi bi-arrow-right"></i>
-        </div>
+  <div class="category text-center text-md-start">
+    <div class="category-title-wrapper">
+      <h1 class="category-title" style="margin-left:30px"><u>Category</u></h1>
+      <div class="arrow-circle" onclick="scrollRight()">
+        <i class="bi bi-arrow-right"></i>
       </div>
-      <div class="d-flex justify-content-center justify-content-md-start category-images flex-wrap">
+    </div>
+    
+    <!-- Wrapper added here -->
+    <div class="category-scroll-wrapper">
+      <div class="d-flex category-images flex-nowrap overflow-auto" id="scrollImages">
         <img src="https://ainak.pk/image/Transparent%20Glasses.webp" alt="Eye Glasses">
         <img src="https://ainak.pk/image/premium-sunglasses-123.webp" alt="Sun Glasses">
         <img src="https://media.istockphoto.com/id/1446300082/photo/close-up-woman-applying-contact-eye-lens.jpg?s=612x612&w=0&k=20&c=YtTqqFZAqgp56TbKUQDXCcS2lU0FwXvICekdo7Lu8QI=" alt="Lenses">
         <img src="https://static-01.daraz.pk/p/bdd527fc60df0af7fb3b4380623dc99a.jpg" alt="Watches">
       </div>
     </div>
-<marquee direction="right" behavior="alternate"scrollamount="20">
-    <div class="caption d-flex justify-content-center flex-wrap mt-2">
-      <a href="eye-glasses.html">Eye Glasses</a>
-      <p>Sun Glasses</p>
-      <p>Lenses</p>
-      <p>Watches</p>
-    </div>
   </div>
-</marquee>
+</div>
+
+
+<script>
+  function scrollRight() {
+    const container = document.getElementById('scrollImages');
+    container.scrollBy({ left: 120, behavior: 'smooth' });
+  }
+</script>
+
+<div class="caption mt-2 p-0">
+  <marquee direction="right" behavior="alternate" scrollamount="15">
+    <span class="marquee-links">
+      <a href="eye-glasses.html">Eye Glasses</a>
+      <a href="#">Sun Glasses</a>
+      <a href="#">Lenses</a>
+      <a href="#">Watches</a>
+    </span>
+  </marquee>
+</div>
+
+
 
 </body>
 </html>
